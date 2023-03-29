@@ -7,6 +7,7 @@ public class LinkedList
     public void Add(KeyValuePair pair)
     {
         // add provided pair to the end of the linked list
+		// just smth to check if it works properly
     }
 
     public void RemoveByKey(string key)
