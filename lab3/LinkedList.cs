@@ -20,15 +20,25 @@ public class LinkedList
         if (this._size == 0)
         {
             LinkedListNode cur = new LinkedListNode(pair);
-            _tail = cur;
             _head = cur;
             _size++;
             return;
         }
-        LinkedListNode notLastAnymore = _tail;
-        LinkedListNode last = new LinkedListNode(pair);
-        _tail = last;
-        notLastAnymore.Next = last;
+        
+        LinkedListNode current = _head;
+        string key = pair.Key;
+        while (current.Next != null)
+        {
+            if (key == current.Pair.Key)
+            {
+                current.Pair = pair;
+                return;
+            }
+
+            current = current.Next;
+        }
+
+        current.Next = new LinkedListNode(pair);
         _size++;
     }
     
@@ -95,7 +105,7 @@ public class LinkedList
         throw new Exception("there is no such element in the list, so I cannot delete it");
     }
 
-    public KeyValuePair GetItemWithKey(string key)
+    public KeyValuePair? GetItemWithKey(string key)
     {
         // get pair with provided key, return null if not found
         var cur = _head;
