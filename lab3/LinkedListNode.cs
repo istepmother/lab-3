@@ -2,7 +2,7 @@
 
 public class LinkedListNode
 {
-    public KeyValuePair Pair { get; }
+    public KeyValuePair Pair { get; set; }
         
     public LinkedListNode Next { get; set; }
 
